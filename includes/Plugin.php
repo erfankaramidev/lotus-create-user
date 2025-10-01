@@ -26,6 +26,6 @@ final class Plugin {
 	 * Load the plugin's dependencies.
 	 */
 	private function load_dependencies(): void {
-
+		( new I18n() )->register_hooks();
 	}
 }
