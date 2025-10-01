@@ -1,0 +1,17 @@
+{
+  "name": "erfankaramidev/lotus-create-user",
+  "description": "A plugin to create a new user via a secure REST API endpoint.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Erfan Karami",
+      "email": "erfankaramidev@proton.me"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Lotus\\UserCreate\\": "includes"
+    }
+  }
+}
