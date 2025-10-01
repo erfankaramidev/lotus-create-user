@@ -42,7 +42,7 @@ if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Register the activation hook to run the setup function.
-register_activation_hook( __FILE__, [ 'Lotus\UserCreate\Core\Activator', 'activate' ] );
+register_activation_hook( __FILE__, [ 'Lotus\CreateUser\Core\Activator', 'activate' ] );
 
 /**
  * Begin the execution of the plugin.
@@ -50,7 +50,7 @@ register_activation_hook( __FILE__, [ 'Lotus\UserCreate\Core\Activator', 'activa
  * @since 1.0.0
  */
 function lotus_user_create_run(): void {
-	$plugin = new Lotus\CreateUser\Plugin();
+	$plugin = new \Lotus\CreateUser\Plugin();
 	$plugin->run();
 }
 

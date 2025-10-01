@@ -2,8 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Lotus\UserCreate\Core;
+namespace Lotus\CreateUser\Core;
 
+/**
+ * Internalization class
+ * 
+ * @since 1.0.0
+ */
 class I18n {
 
 	/**

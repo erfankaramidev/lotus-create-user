@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Lotus\CreateUser;
 
-use Lotus\UserCreate\Admin\Settings;
-use Lotus\UserCreate\Api\RestController;
-use Lotus\UserCreate\Core\I18n;
+use Lotus\CreateUser\Admin\Settings;
+// use Lotus\CreateUser\Api\RestController;
+use Lotus\CreateUser\Core\I18n;
 
 /**
  * The core plugin class
@@ -27,5 +27,6 @@ final class Plugin {
 	 */
 	private function load_dependencies(): void {
 		( new I18n() )->register_hooks();
+		( new Settings() )->register_hooks();
 	}
 }

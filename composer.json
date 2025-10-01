@@ -11,7 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Lotus\\UserCreate\\": "includes"
+      "Lotus\\CreateUser\\": "includes/"
     }
   }
 }
