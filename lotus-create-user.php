@@ -11,7 +11,7 @@
  * Plugin Name:  Lotus Create User
  * Description:  A plugin to create a new user via a secure REST API endpoint.
  * Requires PHP: 7.4
- * Text Domain:  lotus-user-create
+ * Text Domain:  lotus-create-user
  * Domain Path:  /languages
  * Version:      1.0.0
  * Author: 		 Erfan Karami
@@ -31,7 +31,7 @@ if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 		'admin_notices',
 		function () { ?>
 		<div class="notice notice-error is-dismissible">
-			<p><?php esc_html_e( 'Lotus Create User requires Composer autoloader.', 'lotus-user-create' ) ?></p>
+			<p><?php esc_html_e( 'Lotus Create User requires Composer autoloader.', 'lotus-create-user' ) ?></p>
 		</div>
 		<?php
 		}

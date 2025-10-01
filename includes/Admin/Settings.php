@@ -37,15 +37,15 @@ final class Settings {
 		update_option( 'lotus_user_create_api_token', $new_token, false );
 
 		add_settings_error(
-			'lotus-user-create-notices',
+			'lotus-create-user-notices',
 			'lotus-reset-success',
-			esc_html__( 'API token has been reset.', 'lotus-user-create' ),
+			esc_html__( 'API token has been reset.', 'lotus-create-user' ),
 			'success'
 		);
 
 		$redirect_url = admin_url( 'options-general.php' );
 		$redirect_url = add_query_arg( [
-			'page'   => 'lotus-user-create',
+			'page'   => 'lotus-create-user',
 			'status' => 'lotus_token_reset_success'
 		],
 			$redirect_url
@@ -60,10 +60,10 @@ final class Settings {
 	 */
 	public function add_settings_page(): void {
 		add_options_page(
-			esc_html__( 'Lotus User Create API', 'lotus-user-create' ),
-			esc_html__( 'Lotus User Create API', 'lotus-user-create' ),
+			esc_html__( 'Lotus User Create API', 'lotus-create-user' ),
+			esc_html__( 'Lotus User Create API', 'lotus-create-user' ),
 			'manage_options',
-			'lotus-user-create',
+			'lotus-create-user',
 			[ $this, 'render_settings_page' ]
 		);
 	}
@@ -73,7 +73,7 @@ final class Settings {
 	 */
 	public function render_settings_page(): void {
 		$messages = [
-			'lotus_token_reset_success' => esc_html__( 'API token has been reset.', 'lotus-user-create' )
+			'lotus_token_reset_success' => esc_html__( 'API token has been reset.', 'lotus-create-user' )
 		]
 			?>
 		<div class="wrap">
@@ -86,31 +86,31 @@ final class Settings {
 			?>
 
 			<p>
-				<?php esc_html_e( 'This plugin provides a secure REST API endpoint to create new users.', 'lotus-user-create' ); ?>
+				<?php esc_html_e( 'This plugin provides a secure REST API endpoint to create new users.', 'lotus-create-user' ); ?>
 			</p>
 
-			<h2 style="margin-top: 1rem;"><?php esc_html_e( 'Your API Token', 'lotus-user-create' ); ?></h2>
+			<h2 style="margin-top: 1rem;"><?php esc_html_e( 'Your API Token', 'lotus-create-user' ); ?></h2>
 			<p>
-				<?php esc_html_e( "Use this unique token in the 'Authorization' header of your API requests, prefixed with 'Bearer'.", 'lotus-user-create' ); ?>
+				<?php esc_html_e( "Use this unique token in the 'Authorization' header of your API requests, prefixed with 'Bearer'.", 'lotus-create-user' ); ?>
 			</p>
 
 			<input type="text" value="<?php esc_attr_e( get_option( 'lotus_user_create_api_token' ) ); ?>" readonly
 				style="width: 100%; max-width: 500px; padding: 8px;" onclick="this.select();">
-			<p class="description"><?php esc_html_e( 'Click the field above to select the token.', 'lotus-user-create' ); ?></p>
+			<p class="description"><?php esc_html_e( 'Click the field above to select the token.', 'lotus-create-user' ); ?></p>
 
 			<hr style="margin-top: 1rem" />
 
-			<h2><?php esc_html_e( 'Reset Token', 'lotus-user-create' ); ?></h2>
+			<h2><?php esc_html_e( 'Reset Token', 'lotus-create-user' ); ?></h2>
 			<p class="description" style="color: #d50000ff;">
-				<strong><?php esc_html_e( 'Warning: ', 'lotus-user-create' ); ?></strong>
-				<?php esc_html_e( 'Resetting the token will invalidate the existing API token.', 'lotus-user-create' ); ?>
+				<strong><?php esc_html_e( 'Warning: ', 'lotus-create-user' ); ?></strong>
+				<?php esc_html_e( 'Resetting the token will invalidate the existing API token.', 'lotus-create-user' ); ?>
 			</p>
 
 			<form method="post">
 				<input type="hidden" name="action" value="lotus_reset_token">
 				<?php
 				wp_nonce_field( 'lotus_reset_token_action', 'lotus_reset_token_nonce' );
-				submit_button( esc_html__( 'Reset Token', 'lotus-user-create' ) );
+				submit_button( esc_html__( 'Reset Token', 'lotus-create-user' ) );
 				?>
 			</form>
 		</div>

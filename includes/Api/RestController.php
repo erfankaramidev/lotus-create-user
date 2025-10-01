@@ -49,7 +49,7 @@ final class RestController {
 		$api_token = get_option( 'lotus_user_create_api_token' );
 
 		if ( ! $api_token ) {
-			return new WP_Error( 'api_token_not_found', __( 'The API token has not been generated.', 'lotus-user-create' ) );
+			return new WP_Error( 'api_token_not_found', __( 'The API token has not been generated.', 'lotus-create-user' ) );
 		}
 
 		if ( ! empty( $header ) && preg_match( '/^Bearer\s(\S+)/', $header, $matches ) ) {
@@ -58,7 +58,7 @@ final class RestController {
 			}
 		}
 
-		return new WP_Error( 'rest_forbidden', __( 'Missing or invalid authentication token.', 'lotus-user-create' ), [ 'status' => 401 ] );
+		return new WP_Error( 'rest_forbidden', __( 'Missing or invalid authentication token.', 'lotus-create-user' ), [ 'status' => 401 ] );
 	}
 
 	/**
@@ -88,7 +88,7 @@ final class RestController {
 
 		$response_data = [
 			'user_id' => $user_id,
-			'message' => __( 'User created successfully.', 'lotus-user-create' ),
+			'message' => __( 'User created successfully.', 'lotus-create-user' ),
 			'created' => true
 		];
 
@@ -122,7 +122,7 @@ final class RestController {
 
 	public function validate_username( $username ): bool|WP_Error {
 		if ( username_exists( $username ) ) {
-			return new WP_Error( 'username_exists', __( 'Username already exists', 'lotus-user-create' ) );
+			return new WP_Error( 'username_exists', __( 'Username already exists', 'lotus-create-user' ) );
 		}
 
 		return true;

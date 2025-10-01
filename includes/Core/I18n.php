@@ -23,9 +23,9 @@ final class I18n {
 	 */
 	public function load_plugin_textdomain(): void {
 		load_plugin_textdomain(
-			'lotus-user-create',
+			'lotus-create-user',
 			false,
-			dirname( plugin_basename( __FILE__ ), 2 ) . '/languages/'
+			dirname( plugin_basename( __DIR__ ), 2 ) . '/languages/'
 		);
 	}
 }
