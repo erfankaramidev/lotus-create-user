@@ -14,7 +14,7 @@ use WP_REST_Server;
  * 
  * @since 1.0.0
  */
-class RestController {
+final class RestController {
 
 	private string $namespace = 'lotus/v1';
 

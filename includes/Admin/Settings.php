@@ -9,7 +9,7 @@ namespace Lotus\CreateUser\Admin;
  * 
  * @since 1.0.0
  */
-class Settings {
+final class Settings {
 
 	/**
 	 * Register the hooks related to admin settings.

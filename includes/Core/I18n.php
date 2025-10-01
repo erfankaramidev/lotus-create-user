@@ -9,7 +9,7 @@ namespace Lotus\CreateUser\Core;
  * 
  * @since 1.0.0
  */
-class I18n {
+final class I18n {
 
 	/**
 	 * Register the hooks related to internationalization.

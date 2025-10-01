@@ -9,7 +9,7 @@ namespace Lotus\CreateUser\Core;
  * 
  * @since 1.0.0
  */
-class Activator {
+final class Activator {
 
 	/**
 	 * Generates and saves the API token on activation.
