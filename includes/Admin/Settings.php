@@ -43,7 +43,15 @@ final class Settings {
 			'success'
 		);
 
-		wp_safe_redirect( admin_url( 'options-general.php?page=lotus-user-create' ) );
+		$redirect_url = admin_url( 'options-general.php' );
+		$redirect_url = add_query_arg( [
+			'page'   => 'lotus-user-create',
+			'status' => 'lotus_token_reset_success'
+		],
+			$redirect_url
+		);
+
+		wp_safe_redirect( $redirect_url );
 		exit;
 	}
 
@@ -63,11 +71,19 @@ final class Settings {
 	/**
 	 * Render the settings page content.
 	 */
-	public function render_settings_page(): void { ?>
+	public function render_settings_page(): void {
+		$messages = [
+			'lotus_token_reset_success' => esc_html__( 'API token has been reset.', 'lotus-user-create' )
+		]
+			?>
 		<div class="wrap">
 			<h1><?php esc_html_e( get_admin_page_title() ) ?></h1>
 
-			<?php settings_errors( 'lotus-user-create-notices' ); ?>
+			<?php
+			if ( isset( $_GET['status'] ) && isset( $messages[ $_GET['status'] ] ) ) {
+				echo '<div class="notice notice-success is-dismissible"><p>' . $messages[ $_GET['status'] ] . '</p></div>';
+			}
+			?>
 
 			<p>
 				<?php esc_html_e( 'This plugin provides a secure REST API endpoint to create new users.', 'lotus-user-create' ); ?>
