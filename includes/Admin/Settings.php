@@ -36,13 +36,6 @@ final class Settings {
 		$new_token = wp_generate_password( 64, false );
 		update_option( 'lotus_user_create_api_token', $new_token, false );
 
-		add_settings_error(
-			'lotus-create-user-notices',
-			'lotus-reset-success',
-			esc_html__( 'API token has been reset.', 'lotus-create-user' ),
-			'success'
-		);
-
 		$redirect_url = admin_url( 'options-general.php' );
 		$redirect_url = add_query_arg( [
 			'page'   => 'lotus-create-user',
