@@ -13,7 +13,7 @@
  * Requires PHP: 7.4
  * Text Domain:  lotus-create-user
  * Domain Path:  /languages
- * Version:      1.0.0
+ * Version:      1.1.0
  * Author: 		 Erfan Karami
  * Author URI:   https://erfankarami.dev
  * License:      GPL-2.0-or-later
